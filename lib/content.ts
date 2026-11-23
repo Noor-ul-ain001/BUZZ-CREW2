@@ -4,14 +4,29 @@
  */
 
 export const CONTACT = {
-  email: "buzzcrewofficial@gmail.com",
+  email: "hello@thebuzzcrew.com",
   instagram: "@itsbuzzcrew",
   instagramUrl: "https://www.instagram.com/itsbuzzcrew",
   website: "www.thebuzzcrew.com",
   websiteUrl: "https://www.thebuzzcrew.com",
-  phone: "+92 321 2181167",
-  phoneHref: "tel:+923212181167",
+  phone: "+6017-223 6439",
+  phoneHref: "tel:+60172236439",
 };
+
+/** "Dial a Service" keypad — order matters: the key number is the index + 1. */
+export const DIAL_SERVICES = [
+  { title: "Social Media Management", text: "Planning, posting and community care across your channels, every week." },
+  { title: "Video Editing", text: "Reels, ads and long-form cuts edited in-house with hooks that hold attention." },
+  { title: "Content Creation", text: "Shoots, scripts and captions that give your feed a consistent voice." },
+  { title: "Graphic Design", text: "Campaign visuals, posts and collateral designed to stop the scroll." },
+  { title: "Website Development", text: "Fast, modern websites built around what your business needs them to do." },
+  { title: "SEO Optimization", text: "Technical, on-page and local SEO so customers find you first." },
+  { title: "Lead Generation", text: "Funnels, landing pages and follow-ups that turn attention into enquiries." },
+  { title: "AI Content Creation", text: "AI-assisted visuals and copy, directed and polished by our creative team." },
+  { title: "Paid Ads Campaigns", text: "Meta, Google and TikTok ads planned around real goals and revenue." },
+];
+
+export const DIAL_TIMES = ["11:00 AM", "1:00 PM", "3:00 PM", "5:00 PM"];
 
 export const NAV_LINKS = [
   { label: "Home", href: "/", id: "top" },

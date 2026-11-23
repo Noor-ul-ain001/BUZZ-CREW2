@@ -2,8 +2,10 @@
 
 const nextConfig: NextConfig = {
   images: {
-    qualities: [75],
-    formats: ["image/avif", "image/webp"],
+    // Serve /public images as-is. The host's image optimizer (/_next/image)
+    // was failing in production and leaving some images blank; every asset is
+    // already web-sized (largest ~270 KB), so optimisation isn't needed.
+    unoptimized: true,
   },
 };
 

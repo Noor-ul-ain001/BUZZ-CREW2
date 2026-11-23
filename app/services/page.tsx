@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import NextPage from "@/components/NextPage";
 import Services from "@/components/Services";
+import DialService from "@/components/DialService";
 import ResultsPanel from "@/components/ResultsPanel";
 import Ribbons from "@/components/Ribbons";
 
@@ -22,6 +23,7 @@ export default function ServicesPage() {
         marquee="Services"
       />
       <Services />
+      <DialService />
       <ResultsPanel />
       <Ribbons set="services" />
       <NextPage id="services" />

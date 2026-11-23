@@ -10,6 +10,7 @@ import Clients from "@/components/Clients";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
+import DialService from "@/components/DialService";
 import Ribbons from "@/components/Ribbons";
 
 export default function HomePage() {
@@ -27,6 +28,7 @@ export default function HomePage() {
         <Clients />
         <Team />
         <Testimonials />
+        <DialService />
         <Ribbons set="cta" />
         <Contact />
     </main>
