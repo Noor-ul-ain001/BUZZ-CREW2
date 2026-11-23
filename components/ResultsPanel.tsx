@@ -10,6 +10,13 @@ const LINE_B = ["Real", "results", "that", "grow."];
 const ORBIT = FEATURED_CLIENTS.filter((c) => c.logo).slice(0, 6);
 const STAT_ICONS = ["chart", "globe", "rocket", "trophy"] as const;
 const QUOTE = TESTIMONIALS[0];
+/** Deterministic star field (no hydration mismatch). */
+const STARS = Array.from({ length: 18 }, (_, i) => ({
+  left: `${(i * 37 + 11) % 97}%`,
+  top: `${(i * 53 + 7) % 88}%`,
+  delay: `${(i * 0.37) % 3}s`,
+  size: 3 + (i % 3) * 2,
+}));
 
 export default function ResultsPanel() {
   const root = useRef<HTMLElement>(null);
@@ -73,6 +80,10 @@ export default function ResultsPanel() {
         const badges = gsap.utils.toArray<HTMLElement>(".results__badge", section);
         const stats = gsap.utils.toArray<HTMLElement>(".results__stat", section);
         const nums = gsap.utils.toArray<HTMLElement>(".results__num", section);
+        const bars = gsap.utils.toArray<HTMLElement>(".results__bar i", section);
+        const watermark = section.querySelector<HTMLElement>(".results__watermark")!;
+        const halo = section.querySelector<HTMLElement>(".results__halo")!;
+        const floor = section.querySelector<HTMLElement>(".results__floor")!;
 
         const small = () => pin.offsetWidth < 700;
 
@@ -87,6 +98,8 @@ export default function ResultsPanel() {
           const r = pin.getBoundingClientRect();
           ry(((e.clientX - r.left) / r.width - 0.5) * 26);
           rx(((e.clientY - r.top) / r.height - 0.5) * -18);
+          card.style.setProperty("--px", `${e.clientX - r.left}px`);
+          card.style.setProperty("--py", `${e.clientY - r.top}px`);
         };
 
         const tl = gsap.timeline({
@@ -112,6 +125,10 @@ export default function ResultsPanel() {
           0,
         )
           .fromTo(object, { scale: 0.55, rotation: -12 }, { scale: 1, rotation: 0, duration: 0.45 }, 0)
+          .fromTo(floor, { autoAlpha: 0, yPercent: 30 }, { autoAlpha: 1, yPercent: 0, duration: 0.4, ease: "power3.out" }, 0.1)
+          .fromTo(watermark, { autoAlpha: 0, scale: 0.7, yPercent: 20 }, { autoAlpha: 1, scale: 1, yPercent: 0, duration: 0.4, ease: "power3.out" }, 0.16)
+          .to(watermark, { xPercent: -8, duration: 0.6, ease: "none" }, 0.5)
+          .fromTo(halo, { autoAlpha: 0 }, { autoAlpha: 0.45, duration: 0.3 }, 0.22)
           .fromTo(titleA, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, x: 0, duration: 0.2 }, 0.26)
           .fromTo(rings, { scale: 0.2, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.3, stagger: 0.05 }, 0.24)
           .fromTo(orbit.current, { spread: 0 }, { spread: 1, duration: 0.34, ease: "power3.out" }, 0.28)
@@ -137,6 +154,7 @@ export default function ResultsPanel() {
             0.72 + i * 0.04,
           );
         });
+        tl.fromTo(bars, { scaleX: 0 }, { scaleX: 1, duration: 0.2, stagger: 0.04, ease: "power2.out" }, 0.72);
         tl.to({}, { duration: 0.1 });
 
         return () => {
@@ -164,9 +182,26 @@ export default function ResultsPanel() {
     >
       <div className="results__pin">
         <div className="results__card">
-          <div className="results__grid-bg" aria-hidden="true" />
+          <div className="results__aurora" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="results__floor" aria-hidden="true" />
+          <div className="results__spot" aria-hidden="true" />
           <div className="results__glow" aria-hidden="true" />
           <div className="results__sweep" aria-hidden="true" />
+          <div className="results__stars" aria-hidden="true">
+            {STARS.map((s, i) => (
+              <span
+                key={i}
+                style={{ left: s.left, top: s.top, width: s.size, height: s.size, animationDelay: s.delay }}
+              />
+            ))}
+          </div>
+          <p className="results__watermark" aria-hidden="true">
+            Results
+          </p>
 
           <h2 id="results-title" className="results__title-a">
             Not just <em className="serif-accent">visuals</em>
@@ -187,6 +222,7 @@ export default function ResultsPanel() {
           </figure>
 
           <div className="results__object">
+            <span className="results__halo" aria-hidden="true" />
             <span className="results__ring results__ring--a" aria-hidden="true" />
             <span className="results__ring results__ring--b" aria-hidden="true" />
             <div className="results__tilt" aria-hidden="true">
@@ -238,7 +274,10 @@ export default function ResultsPanel() {
                 </dt>
                 <dd>
                   <span className="results__num">{s.value}</span>
-                  {s.suffix}
+                  <span className="results__suffix">{s.suffix}</span>
+                  <span className="results__bar" aria-hidden="true">
+                    <i />
+                  </span>
                 </dd>
               </div>
             ))}

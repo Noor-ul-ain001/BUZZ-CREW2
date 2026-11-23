@@ -1,4 +1,3 @@
-import Nav from "@/components/Nav";
 import HeroStory from "@/components/HeroStory";
 import ResultsPanel from "@/components/ResultsPanel";
 import Manifesto from "@/components/Manifesto";
@@ -11,15 +10,14 @@ import Clients from "@/components/Clients";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Ribbons from "@/components/Ribbons";
 
 export default function HomePage() {
   return (
-    <>
-      <Nav />
-      <main id="main-content">
+    <main id="main-content">
         <HeroStory />
         <ResultsPanel />
+        <Ribbons set="services" />
         <Manifesto />
         <About />
         <Services />
@@ -29,9 +27,8 @@ export default function HomePage() {
         <Clients />
         <Team />
         <Testimonials />
+        <Ribbons set="cta" />
         <Contact />
-      </main>
-      <Footer />
-    </>
+    </main>
   );
 }

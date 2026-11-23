@@ -14,13 +14,16 @@ export const CONTACT = {
 };
 
 export const NAV_LINKS = [
-  { label: "Home", href: "#top", id: "top" },
-  { label: "About", href: "#about", id: "about" },
-  { label: "Services", href: "#services", id: "services" },
-  { label: "Work", href: "#work", id: "work" },
-  { label: "Process", href: "#process", id: "process" },
-  { label: "Team", href: "#team", id: "team" },
+  { label: "Home", href: "/", id: "top" },
+  { label: "About", href: "/about", id: "about" },
+  { label: "Services", href: "/services", id: "services" },
+  { label: "Work", href: "/work", id: "work" },
+  { label: "Process", href: "/process", id: "process" },
+  { label: "Team", href: "/team", id: "team" },
 ];
+
+/** Every routed page in menu order (Contact included). */
+export const PAGES = [...NAV_LINKS, { label: "Contact", href: "/contact", id: "contact" }];
 
 export const STATS = [
   { value: 90, suffix: "+", label: "Projects completed" },
@@ -172,9 +175,7 @@ export const CLIENT_LOGOS = Array.from({ length: 24 }, (_, i) => {
 
 export const TEAM = [
   { initials: "AR", name: "Abdul Rafay", role: "Chief Executive Officer", group: "Founder" },
-  { initials: "MN", name: "Miss Noor", role: "Chief Operating Officer", group: "Founder" },
-  { initials: "SA", name: "Shahab Amjad", role: "Managing Director · Web Development", group: "Department" },
-  { initials: "YK", name: "Yashab Zahra Kazmi", role: "Sales Manager", group: "Department" },
+  { initials: "NK", name: "Noor Khan", role: "Chief Operating Officer", group: "Founder" },
 ];
 
 export const VALUES = [

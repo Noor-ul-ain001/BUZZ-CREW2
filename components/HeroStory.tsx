@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useRef, type PointerEvent } from "react";
 import Sticker, { type StickerName } from "@/components/Sticker";
 import { POSTS } from "@/lib/content";
@@ -284,12 +285,12 @@ export default function HeroStory() {
             creative that serves clear business goals.
           </p>
           <div className="hero__actions">
-            <a href="#work" className="btn btn--dark">
+            <Link href="/work" className="btn btn--dark">
               View our work <span aria-hidden="true">→</span>
-            </a>
-            <a href="#services" className="btn btn--ghost">
+            </Link>
+            <Link href="/services" className="btn btn--ghost">
               What we do
-            </a>
+            </Link>
           </div>
         </div>
 

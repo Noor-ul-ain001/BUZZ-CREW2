@@ -4,7 +4,7 @@ import { TEAM, VALUES } from "@/lib/content";
 const DEPARTMENTS = [
   {
     name: "Sales",
-    lead: "Yashab Zahra Kazmi",
+    lead: "Sales team",
     text: "Client communication, lead management, business development and relationship building.",
   },
   {
@@ -14,7 +14,7 @@ const DEPARTMENTS = [
   },
   {
     name: "Web Development",
-    lead: "Shahab Amjad",
+    lead: "Web team",
     text: "Modern websites, clean user experience and business-focused development.",
   },
 ];

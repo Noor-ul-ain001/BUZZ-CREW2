@@ -1,11 +1,13 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 /** Adds `.is-in` to every `[data-reveal]` element once it scrolls into view. */
 export default function RevealObserver() {
+  const pathname = usePathname();
   useEffect(() => {
-    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-in)"));
     if (!("IntersectionObserver" in window)) {
       nodes.forEach((n) => n.classList.add("is-in"));
       return;
@@ -23,7 +25,7 @@ export default function RevealObserver() {
     );
     nodes.forEach((n) => io.observe(n));
     return () => io.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }

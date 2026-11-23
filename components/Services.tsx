@@ -38,7 +38,8 @@ export default function Services() {
           {SERVICES.map((s, i) => (
             <li
               key={s.title}
-              className={`svc__row${hover === i ? " is-hover" : ""}`}
+              className="svc__row"
+              data-hover={hover === i ? "" : undefined}
               onPointerEnter={(e) => e.pointerType === "mouse" && setHover(i)}
               data-reveal
               style={{ "--d": `${(i % 4) * 60}ms` } as React.CSSProperties}

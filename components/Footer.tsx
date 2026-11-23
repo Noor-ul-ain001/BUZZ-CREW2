@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import Sticker from "@/components/Sticker";
-import { CONTACT, NAV_LINKS, SERVICES } from "@/lib/content";
+import { CONTACT, PAGES, SERVICES } from "@/lib/content";
 
 const SOCIAL = [
   { label: "Instagram", href: CONTACT.instagramUrl, text: CONTACT.instagram },
@@ -28,9 +29,9 @@ export default function Footer() {
             Have a story <em className="serif-accent">worth</em> telling?
           </h2>
           <div className="ft__actions">
-            <a href="#contact" className="btn ft__btn" data-cursor="Let's go">
+            <Link href="/contact" className="btn ft__btn" data-cursor="Let's go">
               Start a project <span aria-hidden="true">→</span>
-            </a>
+            </Link>
             <a href={CONTACT.instagramUrl} target="_blank" rel="noreferrer" className="btn ft__btn ft__btn--ghost">
               DM us on Instagram <span aria-hidden="true">↗</span>
             </a>
@@ -49,14 +50,11 @@ export default function Footer() {
           <nav className="ft__col" aria-label="Footer">
             <h3>Explore</h3>
             <ul>
-              {NAV_LINKS.map((l) => (
+              {PAGES.map((l) => (
                 <li key={l.id}>
-                  <a href={l.href}>{l.label}</a>
+                  <Link href={l.href}>{l.label}</Link>
                 </li>
               ))}
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
             </ul>
           </nav>
 
@@ -65,7 +63,7 @@ export default function Footer() {
             <ul>
               {SERVICES.slice(0, 6).map((s) => (
                 <li key={s.title}>
-                  <a href="#services">{s.title}</a>
+                  <Link href="/services">{s.title}</Link>
                 </li>
               ))}
             </ul>
