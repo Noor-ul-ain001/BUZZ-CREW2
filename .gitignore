@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.env*
+.netlify
+tsconfig.tsbuildinfo
+next-env.d.ts
+
+# Source materials & backups (kept locally, not in the repo)
+*.pdf
+*.mp4
+Screenshot*.png
+links..md
+_backup-before-redesign.zip
