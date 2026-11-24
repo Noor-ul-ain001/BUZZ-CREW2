@@ -107,7 +107,7 @@ export default function ResultsPanel() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=200%",
+            end: "+=130%",
             pin,
             scrub: 0.6,
             invalidateOnRefresh: true,

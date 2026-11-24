@@ -38,10 +38,6 @@ export default function Contact() {
                 <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
               </li>
               <li>
-                <span>Phone</span>
-                <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
-              </li>
-              <li>
                 <span>Instagram</span>
                 <a href={CONTACT.instagramUrl} target="_blank" rel="noreferrer">
                   {CONTACT.instagram}

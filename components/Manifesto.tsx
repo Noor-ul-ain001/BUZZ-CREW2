@@ -11,8 +11,7 @@ type Piece =
   | { t: "logo" }
   | { t: "tagged"; text: string; tags: { label: string; tone: string; pos: "top" | "bottom"; rot: number }[] };
 
-const SENTENCE =
-  "Designing stories that move people. Crafting meaningful and measurable digital experiences. Buzz Crew is a full-service creative company that brings brands, stories, and experiences to life through strategy, design, and technology.";
+const SENTENCE = "Designing stories that move people. Buzz Crew brings brands to life through strategy, design and technology.";
 
 const PIECES: Piece[] = [
   { t: "soft", text: "Designing" },
@@ -27,37 +26,13 @@ const PIECES: Piece[] = [
   { t: "soft", text: "that" },
   { t: "strong", text: "move people." },
   { t: "sticker", name: "arrow" },
-  { t: "sticker", name: "globe" },
-  { t: "sticker", name: "asterisk" },
-  { t: "soft", text: "Crafting" },
   {
     t: "tagged",
-    text: "meaningful",
-    tags: [
-      { label: "and measurable", tone: "peach", pos: "bottom", rot: -5 },
-    ],
+    text: "Buzz Crew",
+    tags: [{ label: "since 2022", tone: "peach", pos: "top", rot: 5 }],
   },
-  { t: "strong", text: "digital experiences." },
-  { t: "sticker", name: "eyes" },
-  { t: "strong", text: "Buzz Crew" },
-  { t: "soft", text: "— is a" },
-  {
-    t: "tagged",
-    text: "full-service",
-    tags: [
-      { label: "since 2022", tone: "cyan", pos: "top", rot: 5 },
-      { label: "PK · UAE · UK", tone: "pink", pos: "bottom", rot: -4 },
-    ],
-  },
-  { t: "sticker", name: "pill" },
-  { t: "strong", text: "creative company" },
-  { t: "soft", text: "that brings" },
-  { t: "strong", text: "brands, stories," },
-  { t: "soft", text: "and" },
-  { t: "sticker", name: "head" },
-  { t: "strong", text: "experiences" },
-  { t: "soft", text: "to life through" },
-  { t: "strong", text: "strategy, design," },
+  { t: "soft", text: "brings brands to life through" },
+  { t: "strong", text: "strategy, design" },
   { t: "soft", text: "and" },
   { t: "sticker", name: "pixels" },
   { t: "strong", text: "technology." },
@@ -123,7 +98,7 @@ export default function Manifesto() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: () => `+=${distance() * 1.1}`,
+            end: () => `+=${distance() * 0.75}`,
             pin,
             scrub: 0.5,
             invalidateOnRefresh: true,
@@ -139,7 +114,7 @@ export default function Manifesto() {
 
         tl.fromTo(
           track,
-          { x: () => panel.clientWidth * 0.55 },
+          { x: () => panel.clientWidth * 0.3 },
           { x: () => -distance() + panel.clientWidth * 0.06, ease: "none", duration: 1 },
           0,
         );

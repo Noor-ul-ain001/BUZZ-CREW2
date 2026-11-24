@@ -16,7 +16,7 @@ type Lead = {
 const EMPTY: Lead = { name: "", phone: "", email: "", date: "", time: DIAL_TIMES[0] };
 
 /** wa.me wants digits only, no "+" or spaces. */
-const WA_NUMBER = CONTACT.phoneHref.replace(/\D/g, "");
+const WA_NUMBER = CONTACT.whatsapp;
 
 /** Standard DTMF pairs (low row Hz, high column Hz) — the tones a phone keypad plays. */
 const DTMF: [number, number][] = [

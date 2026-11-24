@@ -7,7 +7,6 @@ const SOCIAL = [
   { label: "Instagram", href: CONTACT.instagramUrl, text: CONTACT.instagram },
   { label: "Website", href: CONTACT.websiteUrl, text: CONTACT.website },
   { label: "Email", href: `mailto:${CONTACT.email}`, text: CONTACT.email },
-  { label: "Phone", href: CONTACT.phoneHref, text: CONTACT.phone },
 ];
 
 export default function Footer() {

@@ -5844,3 +5844,8 @@ html.theme-fade * {
   margin-inline: calc(-1 * min(20px, var(--gutter)));
   padding-inline: min(20px, var(--gutter));
 }
+
+.svc__more {
+  margin-top: 2.5rem;
+  text-align: center;
+}

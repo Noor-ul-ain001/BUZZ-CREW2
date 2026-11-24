@@ -149,7 +149,6 @@ export default function Nav() {
             <div className="menu__block">
               <p className="menu__label">Say hello</p>
               <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-              <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
             </div>
             <div className="menu__block">
               <p className="menu__label">Follow</p>

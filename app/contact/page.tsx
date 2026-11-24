@@ -6,7 +6,7 @@ import Ribbons from "@/components/Ribbons";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Start a project with Buzz Crew — email, phone, Instagram or the project form.",
+  description: "Start a project with Buzz Crew — email, Instagram or the project form.",
 };
 
 export default function ContactPage() {

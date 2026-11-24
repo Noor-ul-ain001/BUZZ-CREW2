@@ -9,8 +9,8 @@ export const CONTACT = {
   instagramUrl: "https://www.instagram.com/itsbuzzcrew",
   website: "www.thebuzzcrew.com",
   websiteUrl: "https://www.thebuzzcrew.com",
-  phone: "+6017-223 6439",
-  phoneHref: "tel:+60172236439",
+  /** Used only by the WhatsApp send button in "Dial a Service" — never displayed. */
+  whatsapp: "60172236439",
 };
 
 /** "Dial a Service" keypad — order matters: the key number is the index + 1. */

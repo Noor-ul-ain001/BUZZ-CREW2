@@ -146,7 +146,7 @@ export default function HeroStory() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=220%",
+            end: "+=150%",
             pin,
             scrub: 0.6,
             invalidateOnRefresh: true,

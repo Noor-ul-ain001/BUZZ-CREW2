@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState, type PointerEvent } from "react";
 import Sticker from "@/components/Sticker";
 import { SERVICES } from "@/lib/content";
 
-export default function Services() {
+export default function Services({ limit }: { limit?: number }) {
+  const list = limit ? SERVICES.slice(0, limit) : SERVICES;
   const [hover, setHover] = useState<number | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -35,7 +37,7 @@ export default function Services() {
 
         <div ref={listRef} className="svc-wrap" onPointerMove={onMove} onPointerLeave={() => setHover(null)}>
         <ol className="svc">
-          {SERVICES.map((s, i) => (
+          {list.map((s, i) => (
             <li
               key={s.title}
               className="svc__row"
@@ -53,7 +55,7 @@ export default function Services() {
         </ol>
 
           <div ref={previewRef} className={`svc__preview${hover !== null ? " is-on" : ""}`} aria-hidden="true">
-            {SERVICES.map((s, i) => (
+            {list.map((s, i) => (
               <Image
                 key={s.title}
                 src={s.image}
@@ -65,6 +67,14 @@ export default function Services() {
             ))}
           </div>
         </div>
+
+        {limit && limit < SERVICES.length && (
+          <p className="svc__more" data-reveal>
+            <Link href="/services" className="btn btn--dark">
+              See all {SERVICES.length} services <span aria-hidden="true">→</span>
+            </Link>
+          </p>
+        )}
       </div>
     </section>
   );
